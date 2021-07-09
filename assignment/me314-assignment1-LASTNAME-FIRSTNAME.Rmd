@@ -1,6 +1,6 @@
 ---
 title: "Exercise 1 - Getting started with data science"
-author: "Your name here"
+author: "Clément PUYBAREAU"
 output: html_document
 ---
 
@@ -52,8 +52,8 @@ View(college)
 You should see that there is now a `row.names` column with the name of each university recorded. This means that R has given each row a name corresponding to the appropriate university. R will not try to perform calculations on the row names. However, we still need to eliminate the first column in the data where the names are stored. Try
 
 ```{r, eval=FALSE}
-college <- college[, -1] 
-View(college)
+college <- college[, -1]
+head(college)
 ```
 
 Now you should see that the first data column is `Private`. Note that another column labeled `row.names` now appears before the `Private` column. However, this is not a data column but rather the name that `R` is giving to each row.
@@ -61,10 +61,26 @@ Now you should see that the first data column is `Private`. Note that another co
 ### 1.3 Try some operations
 
 a.  Use the `summary()` function to produce a numerical summary of the variables in the data set.
+
+```{r, eval=FALSE}
+summary(college)
+```
    
 b.  Use the `pairs()` function to produce a scatterplot matrix of the first ten columns or variables of the data. Recall that you can reference the first ten columns of a matrix `A` using `A[,1:10]`.
+
+```{r, eval=FALSE}
+college$Private <- as.factor(college$Private)
+# We need to transform the string column to factors
+# before we can use it
+
+pairs(college[,1:10])
+```
    
 c.  Use the `plot()` function to produce side-by-side boxplots of `Outstate` versus `Private`.
+
+```{r, eval=FALSE}
+plot(college$Private, college$Outstate)
+```
    
 d.  Create a new qualitative variable, called `Elite`, by *binning* the `Top10perc` variable. We are going to divide universities into two groups based on whether or not the proportion of students coming from the top 10% of their high school classes exceeds 50%.
 

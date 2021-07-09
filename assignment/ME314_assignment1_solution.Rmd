@@ -184,7 +184,7 @@ sapply(Auto[-seq(10, 85), -qualitative_columns], sd)
 
 ```{r}
 # Part (e):
-pairs(Auto)
+#pairs(Auto)
 
 pairs(Auto[, -qualitative_columns])
 
@@ -209,7 +209,7 @@ with(Auto, plot(originf, mpg), ylab = "mpg")
 (f) Suppose that we wish to predict gas mileage (`mpg`) on the basis of the other variables. Do your plots suggest that any of the other variables might be useful in predicting `mpg`? Justify your answer.
 
 ```{r}
-pairs(Auto)
+#pairs(Auto)
 ```
 
 **See descriptions of plots in (e). All of the predictors show some correlation with mpg. The name predictor has too little observations per name though, so using this as a predictor is likely to result in overfitting the data and will not generalize well.**
